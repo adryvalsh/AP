@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{/* selector universal aplica el estilo a todo */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+body{
+    background-color: blue;
+}
+/* comwentario rapido */
+
+h2{
+    color: white;
+}
+
+a{
+    color: rgb(134, 133, 133);
+    text-decoration: none;
+}
+nav a:hover{
+    color: white;
+    text-decoration: red;
+}
+
+header{
+    display: flex;/* te doy la posib de usar flexbox
+    cuando lo activo se activa la dimension en eje X/Y */
+    flex-direction: row;/* colum cambia a forma de columna , row es la que viene por defecto*/
+    align-items: center;/* si queremos alinearlos en el eje Y */
+    justify-content: space-between;/* atRT  es el que viene por defecto 
+    space_evently hace el mismo espacio entre el bordes y los elementos */
+    background-color: rgb(6, 6, 99);
+    padding: 20px 150px;
+    margin: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.425);
+}
+/* constinuar clase con 50min */
+
+nav{
+    display: flex;
+    gap: 60px;/* espaciado entre sus hijos */
+}
+
+@keyframes left-to-rigth{
+    0%{/* al comienzo de la animacion */
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+    100%{/* al final de nuestra animacion se diriga a pos original */
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.caja{
+    width: 200px;
+    height: 200px;
+    background-color: darkolivegreen;
+    border: 5px orange solid;
+    border-radius: 10px;
+    border-bottom-left-radius: 60px;
+    margin: 40px 20px;
+    padding: 20px 10px;
+    text-align: center;
+    animation-name: left-to-rigth;
+    animation-duration: 2s;
+}
+.caja:hover{
+    transition: 1s ease-in;
+    background-color: blue;
+
+}
+
