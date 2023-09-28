@@ -4,20 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Posteo</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"/>
 </head>
 <body>
   <%- include('navbar')%>
-  <div>
-    <form action="/post/update" method="post">
-        <input type="text" name="title" placeholder="Título del posteo" value="<%= post.title %>"><br>
-        <textarea name="content" id="" cols="30" rows="10" placeholder="Contenido del posteo" > <%= post.content%></textarea><br>
-        <input type="text" name="link" placeholder="Url de la imagen"  value="<%= post.link %>"><br>
-        <button>Guardar cambios</button>
-        <button>Cancelar</button>
-    </form>
+  <main>
+    <div class="card-presentacion">
+    <h1>Editar posteo</h1> 
+    </div> 
+      <div class="container">        
+        <form class="row mt-3" action="/post/update" method="post">
+          <div class="row">
+            <div class="col-6">
+              <label for="title" class="form-label">Título</label>
+              <input type="text" class="form-control" name="title" id="title"
+                placeholder="Título del posteo" value="<%= post.title %>"/>
+                <span></span>
+            </div>          
+            <div class="col-12">
+              <label for="content" class="form-label">Comentarios</label>
+              <textarea class="form-control" name="content" id="content" cols="30" rows="10" placeholder="Contenido del posteo"><%= post.content %></textarea><span></span>
+            </div>
+            <div class="col-6">
+                <label for="link" class="form-label">Link</label>
+                <input type="text" class="form-control" name="link" id="link" placeholder="Url de la imagen"
+                value="<%= post.link %>"/>
+                <span></span>
+              </div><span></span>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-primary">Guardar</button>
+              <input type="text" name="id" id="id" hidden value="<%= post.id %>"/>
+            </div>
+      </div>     
     
-  </div>
+    
+  </main>  
   <%- include('footer')%>
 </body>
 </html>

@@ -15,12 +15,6 @@ const createPost = async(req, res)=>{
     await PostModel.create({title,content,link});
     res.redirect('post');
 }
-/*
-const findPost = async(req, res)=>{
-    const id= req.params.id
-    const post = await PostModel.findByPk(id)
-    res.json(post)
-}*/
 
 const formUpdatePost = async(req, res)=>{
     const id= req.params.id
@@ -30,24 +24,21 @@ const formUpdatePost = async(req, res)=>{
 }
 
 const updatePost = async(req, res)=>{
-    const id= req.params.id
-    const { title, content, link }= req.body
-    await PostModel.update({title, content, link}, {
-        where: {
-            id: id
-        }
-    })
-    res.json(post)
+    const {id, title, content, link }= req.body
+    const post = await PostModel.findByPk(id)
+    await post.update({title, content, link })
+    res.redirect("/post")
 }
 
 const deletePost = async(req, res)=>{
     const id= req.params.id
-    await PostModel.destroy({
+    const post = await PostModel.findByPk(id)
+    await post.destroy({
         where:{
             id: id
         }
     })
-    res.send('deleted Post')
+    res.redirect("/post")
 }
 
 module.exports = {

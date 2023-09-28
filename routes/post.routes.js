@@ -17,7 +17,7 @@ router.get('/',listPosts)
 router.get('/new',formCreatePost)
 router.post('/',createPost)
 router.get('/update/:id',formUpdatePost)
-router.put('/:id',updatePost)
-router.delete('/:id',deletePost)
+router.post('/update',updatePost)
+router.get('/delete/:id',deletePost)
 
 module.exports = router;

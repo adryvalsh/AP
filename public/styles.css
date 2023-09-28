@@ -57,15 +57,6 @@ body {
   margin-left: 10vh;
   padding-top: 1rem;
 }
-.invalid {
-  border: solid 1px red;
-  box-shadow: 0 0 10px red;
-}
-.error {
-  color: #007bff;
-  font-size: 0.75rem;
-}
-
 .tarjeta {
   width: 350px;
   margin: 50px 10px 0px 10px;
@@ -112,6 +103,8 @@ body {
   background: #2fb4cc;
   color: #fff;
 }
+
+
 
 .card-presentacion {
   padding: 0 20px;
@@ -169,13 +162,6 @@ form textarea {
   height: 12vh;
   border-radius: 25px;
 }
-.boton1 {
-  display: flex;
-  justify-content: center;
-}
-.boton1 input {
-  width: 15vh;
-}
 .logo {
   width: 80px;
   height: auto;
@@ -188,17 +174,10 @@ form textarea {
   nav a {
     display: none;
   }
-  .hamburguesa {
-    display: block;
-    font-size: 40px;
-  }
 }
 
 @media (min-width: 769px) {
   nav a {
     display: flex;
-  }
-  .hamburguesa {
-    display: none;
   }
 }

@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posteos</title>
-    <link rel="stylesheet" href="./styles.css">
-    
+    <link rel="stylesheet" href="./styles.css">    
 </head>
 <body>
-  <%- include('navbar')%>
-  
+  <%- include('navbar')%>  
     <main>
       <div class="card-presentacion">
         <h1>Bienvenido a mi Foro Personalizado</h1>
-               
+              
       </div>
       <div class="contenedor">
         <% allPosts.forEach((post)=>{ %>
@@ -26,9 +24,17 @@
             <p>
               <%= post.content %>
             </p>
-            <a href="/post/update"><i class="bi bi-pencil-fill"></i></a>
-            <a href="/post/delete"><i class="bi bi-trash-fill"></i></a>
-          </div>
+            </div>
+            <div class="contenido">
+              <p>
+                <%= post.createdAt %>
+              </p>
+              
+            </div>
+            <div class="contenido ">
+              <a href="/post/update/<%= post.id %>"><i class="bi bi-pencil-fill"></i></a>
+              <a href="/post/delete/<%= post.id %>"><i class="bi bi-trash-fill"></i></a>
+            </div>
         </div>
         <% }); %>
       </div>
