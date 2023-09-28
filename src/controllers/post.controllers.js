@@ -1,18 +1,35 @@
+//const { NOT } = require('sequelize/types/deferrable');
 const{PostModel}=require('../models/Post')
 
-async function createPost(req, res){
-    const{ title, content, link } = req.body
-    await PostModel.create({title,content,link})
-    res.send('created Post')
+const listPosts = async(req, res)=>{
+    const allPosts = await PostModel.findAll();
+    res.render("index",{allPosts})
+};
+
+const formCreatePost = async(req, res)=>{
+    res.render('new');
 }
 
-async function findPost(req, res){
+const createPost = async(req, res)=>{
+    const{ title, content, link } = req.body
+    await PostModel.create({title,content,link});
+    res.redirect('post');
+}
+/*
+const findPost = async(req, res)=>{
     const id= req.params.id
     const post = await PostModel.findByPk(id)
     res.json(post)
+}*/
+
+const formUpdatePost = async(req, res)=>{
+    const id= req.params.id
+    const post = await PostModel.findByPk(id)
+    if (!post){ return res.redirect('/post')}
+    res.render('update',{post})
 }
 
-async function updatePost(req, res){
+const updatePost = async(req, res)=>{
     const id= req.params.id
     const { title, content, link }= req.body
     await PostModel.update({title, content, link}, {
@@ -23,7 +40,7 @@ async function updatePost(req, res){
     res.json(post)
 }
 
-async function deletePost(req, res){
+const deletePost = async(req, res)=>{
     const id= req.params.id
     await PostModel.destroy({
         where:{
@@ -33,15 +50,12 @@ async function deletePost(req, res){
     res.send('deleted Post')
 }
 
-async function listPosts(req, res){
-    const allPosts = PostModel.findAll()
-    res.json(allPosts)
-}
-
 module.exports = {
+    
+    listPosts,
+    formCreatePost,
     createPost,
-    findPost,
+    formUpdatePost,
     updatePost,
-    deletePost,
-    listPosts
+    deletePost
 }

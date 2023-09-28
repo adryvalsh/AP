@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="">
+    <title>Posteos</title>
+    <link rel="stylesheet" href="./styles.css">
+    
 </head>
 <body>
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="<% %>" class="img-fluid rounded-start" alt="...">
+  <%- include('navbar')%>
+  
+    <main>
+      <div class="card-presentacion">
+        <h1>Bienvenido a mi Foro Personalizado</h1>
+               
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      <div class="contenedor">
+        <% allPosts.forEach((post)=>{ %>
+        <div class="tarjeta">
+          <figure>
+            <img src="<%= post.link %>" />
+          </figure>
+          <div class="contenido">
+            <h3><%= post.title %></h3>
+            <p>
+              <%= post.content %>
+            </p>
+            <a href="/post/update"><i class="bi bi-pencil-fill"></i></a>
+            <a href="/post/delete"><i class="bi bi-trash-fill"></i></a>
+          </div>
         </div>
+        <% }); %>
       </div>
-    </div>
-  </div>
+    </main> 
+  <%- include('footer')%>
 </body>
 </html>

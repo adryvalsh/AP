@@ -1,74 +1,204 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-*{/* selector universal aplica el estilo a todo */
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-color: blue;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 20px 50px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.571);
+  width: 100%;
 }
-/* comwentario rapido */
+nav {
+  display: flex;
+  gap: 60px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
 
-h2{
-    color: white;
+nav a:hover {
+  color: #007bff;
 }
 
-a{
-    color: rgb(134, 133, 133);
-    text-decoration: none;
-}
-nav a:hover{
-    color: white;
-    text-decoration: red;
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #e7eaee;
+  min-height: 100vh;
 }
 
-header{
-    display: flex;/* te doy la posib de usar flexbox
-    cuando lo activo se activa la dimension en eje X/Y */
-    flex-direction: row;/* colum cambia a forma de columna , row es la que viene por defecto*/
-    align-items: center;/* si queremos alinearlos en el eje Y */
-    justify-content: space-between;/* atRT  es el que viene por defecto 
-    space_evently hace el mismo espacio entre el bordes y los elementos */
-    background-color: rgb(6, 6, 99);
-    padding: 20px 150px;
-    margin: 50px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.425);
+.contenedor {
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+  padding: 0 20px;
+  gap: 20px;
+  margin-bottom: 50px;
 }
-/* constinuar clase con 50min */
 
-nav{
+.container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.container_imag {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: center;
+  margin-left: 10vh;
+  padding-top: 1rem;
+}
+.invalid {
+  border: solid 1px red;
+  box-shadow: 0 0 10px red;
+}
+.error {
+  color: #007bff;
+  font-size: 0.75rem;
+}
+
+.tarjeta {
+  width: 350px;
+  margin: 50px 10px 0px 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  transition: all 400ms ease;
+}
+.tarjeta:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3%);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 210px;
+}
+
+.tarjeta .contenido {
+  padding: 15px;
+  text-align: center;
+}
+.tarjeta .contenido p {
+  line-height: 1.5;
+  color: #6a6a6a;
+}
+.tarjeta .contenido h3 {
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.tarjeta .contenido a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  margin-top: 10px;
+  color: #2fb4cc;
+  border: 1px solid #2fb4cc;
+  border-radius: 4px;
+  transition: all 400ms ease;
+}
+.tarjeta .contenido a:hover {
+  background: #2fb4cc;
+  color: #fff;
+}
+
+.card-presentacion {
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333333;
+  color: #f8f9fa;
+  font-size: 14px;
+  gap: 80px;
+  padding: 20px 60px;
+  margin-bottom: 0;
+}
+
+footer a {
+  color: #6c757d;
+}
+
+footer a:hover {
+  color: #007bff;
+}
+
+form {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+form label,
+form input,
+form textarea,
+form button {
+  display: block;
+  margin-bottom: 10px;
+}
+.form-container {
+  padding-left: 30px;
+  background-color: rgba(2, 3, 15, 0.164);
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  margin-left: 50vh;
+  border-radius: 25px;
+  padding-top: 1rem;
+}
+form input {
+  height: 6vh;
+  border-radius: 25px;
+}
+form textarea {
+  height: 12vh;
+  border-radius: 25px;
+}
+.boton1 {
+  display: flex;
+  justify-content: center;
+}
+.boton1 input {
+  width: 15vh;
+}
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+@media (min-width: 361px) {
+  .contenedor {
     display: flex;
-    gap: 60px;/* espaciado entre sus hijos */
+  }
+  nav a {
+    display: none;
+  }
+  .hamburguesa {
+    display: block;
+    font-size: 40px;
+  }
 }
 
-@keyframes left-to-rigth{
-    0%{/* al comienzo de la animacion */
-        transform: translateX(-500px);
-        opacity: 0;
-    }
-    100%{/* al final de nuestra animacion se diriga a pos original */
-        transform: translateX(0px);
-        opacity: 1;
-    }
+@media (min-width: 769px) {
+  nav a {
+    display: flex;
+  }
+  .hamburguesa {
+    display: none;
+  }
 }
-
-.caja{
-    width: 200px;
-    height: 200px;
-    background-color: darkolivegreen;
-    border: 5px rgb(4, 89, 185) solid;
-    border-radius: 10px;
-    border-bottom-left-radius: 60px;
-    margin: 40px 20px;
-    padding: 20px 10px;
-    text-align: center;
-    animation-name: left-to-rigth;
-    animation-duration: 2s;
-}
-.caja:hover{
-    transition: 1s ease-in;
-    background-color: rgb(66, 66, 236);
-
-}
-

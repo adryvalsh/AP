@@ -1,20 +1,23 @@
 const { Router } = require('express')
 
 const {
+    
+    listPosts,
+    formCreatePost,
     createPost,
-    findPost,
+    formUpdatePost,
     updatePost,
-    deletePost,
-    listPosts
+    deletePost
 } = require('../src/controllers/post.controllers')
 
 
-const router = Router()
+const router = Router();
 
 router.get('/',listPosts)
-router.get('/:id',findPost)
+router.get('/new',formCreatePost)
 router.post('/',createPost)
+router.get('/update/:id',formUpdatePost)
 router.put('/:id',updatePost)
 router.delete('/:id',deletePost)
 
-module.exports = router
+module.exports = router;
